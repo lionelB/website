@@ -12,9 +12,9 @@ authors:
 # Itérateurs et générateurs
 
 Un gros morceau aujourd'hui : les itérateurs et les fonctions qui les génèrent,
-appelées donc "générateurs". ES6/2015 apporte énormément de "sucres
+appelées "générateurs". ES6/2015 apporte énormément de "sucres
 syntaxiques", même s'ils sont terriblement pratiques. Les valeurs par défaut,
-l'affectation par déstructuration, les fonctions flêchées, etc… tout ça
+l'affectation par déstructuration, les fonctions flêchées, … Tout ça
 n'apporte pas de réelle nouvelle fonctionnalité. C'est un peu différent pour les
 générateurs qui vont permettre de prendre le contrôle sur l'éxécution d'une
 fonction depuis l'extérieur.
@@ -24,7 +24,7 @@ fonction depuis l'extérieur.
 Un nouveau mot-clé fait son apparition : ``function*``, une fonction marquée par
 l'astérisque n'est jamais exécutée directement, à la place, elle retourne un
 *itérateur*. Un générateur est donc capable de s'interrompre (il est interrompu
-par défaut en fait). Il est également capable de reprendre là où il s'était
+par défaut). Il est également capable de reprendre là où il s'était
 arrêté : l'itérateur retourné est un objet exposant une méthode  ``next`` qui
 lorsqu'elle est appelée demande au générateur de reprendre là où il en était.
 
@@ -68,14 +68,14 @@ iterator.next() // { value: 2, done: false }
 iterator.next() // { value: undefined, done: true }
 ```
 
-Note : si notre générateur ``return`` une valeur, elle sera affecté à la
+Note : si notre générateur ``return`` une valeur, elle sera affectée à la
 propriété ``value`` de la dernière itération.
 
-### Use-case : listes infinies
+### *Use case* : listes infinies
 
 Un premier use-case à ce stade est la possibilité de générer des listes de
 longueur non définie à l'avance. On peut parcourir une suite dont on ne sait pas
-à l'avance *combien* d'éléments on veut, par exemple récupérer tous les éléments
+à l'avance *combien* d'éléments on souhaite, par exemple récupérer tous les éléments
 de la suite de Fibonacci inférieurs à 100 :
 
 ```js
@@ -102,7 +102,7 @@ Note : l'opérateur ``for … of`` sera vu plus en détail dans un prochain ar
 ## Passage de valeur au générateur
 
 On a vu que ``yield`` permettait d'émettre une valeur depuis le générateur vers
-le code contrôleur. Mais le sens inverse est également possible : la méthode
+le code contrôleur, mais le sens inverse est également possible : la méthode
 ``next`` de l'itérateur accepte une valeur en paramètre, qui sera alors
 retournée par l'appel correspondant à ``yield``. Exemple :
 
@@ -131,7 +131,7 @@ iterator.next() // { value: undefined, done: true }
 n'importe quel type de donnée : une fonction, un objet, un autre itérateur… Les
 possibilités sont infinies. On va en explorer une rapidement avec les promesses.
 
-### Use-case : coroutines
+### *Use case* : coroutines
 
 Le code du générateur lui-même ne peut être réellement asynchrone : les appels à
 ``yield`` se suivent de manière synchrone. Le code contrôleur par contre, est
@@ -157,7 +157,7 @@ execAsync(function * () {
 }) // Ajax request… Work… Save… OK.
 ```
 
-Ne serait-ce pas merveilleux ? C'est le *use-case* le plus intéressant pour nous
+Ne serait-ce pas merveilleux ? C'est le *use case* le plus intéressant pour nous
 au quotidien, et c'est assez simple en fait :
 
 ```js
@@ -258,7 +258,7 @@ function * zeroToFour () {
 }
 ```
 
-Cela fonction bien sûr avec tous les *itérable* qui seront abordés dans un futur
+Cela fonction bien sûr avec tous les *itérables* qui seront abordés dans un futur
 article : ``yield * [1, 2, 3]`` est valide par exemple.
 
 ### Retour anticipé
